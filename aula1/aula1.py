@@ -5,5 +5,10 @@ print('linha2')
 # Quando encontra o comentário, ele desconsidera.
 print('linha3')
 print('linha4')
+'''
+Aqui é um docstring ou chamado 
+também de comentário multilinha.
+Certo?
+'''
 print('linha5')
 print('linha6')

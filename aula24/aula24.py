@@ -1,0 +1,1 @@
+usar o else com o for. meio sem futuro. mas vai que precisa, né? deixando aqui essa notinha.

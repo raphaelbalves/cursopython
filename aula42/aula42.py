@@ -32,18 +32,29 @@
 # for k, v in d1.items():
 #     print(k, v)
 
-clientes = {
-    'cliente1': {
-        'nome': 'raphael',
-        'sobrenome': 'barros'
-    },
+# clientes = {
+#     'cliente1': {
+#         'nome': 'raphael',
+#         'sobrenome': 'barros'
+#     },
+#
+#     'cliente2': {
+#         'nome': 'iana',
+#         'sobrenome': 'soares'
+#     }
+# }
+#
+# for k in clientes.items():
+#     for k2, v2 in k[1].items():
+#         print(k2, v2)
 
-    'cliente2': {
-        'nome': 'iana',
-        'sobrenome': 'soares'
-    }
-}
-
-for k in clientes.items():
-    for k2, v2 in k[1].items():
-        print(k2, v2)
+# Nesse caso, para copiar um dicionário sem vinculá-lo direto ao dicionário de origem, com o mesmo endereço na memória,
+# é preci usar a função copy.
+import copy
+d1 = {1: 'a', 2: 'b', 3: 'c'}
+v = copy.deepcopy(d1)
+print(id(v))
+print(id(d1))
+v[1] = 'carro'
+print(v)
+print(d1)

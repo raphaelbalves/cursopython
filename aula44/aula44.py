@@ -266,36 +266,89 @@
 #     if palavras.count(x) == 1:
 #         print(f'"{x}" foi digitada uma única vez.')
 
-produtos = {
-    "1": ['Teclado', 300, 166.71],
-    "2": ['Mouse', 125, 80.57],
-    "3": ['Processador', 25, 875.64],
-    "4": ['Cooler', 70, 35.14]
-}
+# produtos = {
+#     "1": ['Teclado', 300, 166.71],
+#     "2": ['Mouse', 125, 80.57],
+#     "3": ['Processador', 25, 875.64],
+#     "4": ['Cooler', 70, 35.14]
+# }
+#
+# print('Código do produto, produto, quantidade e valor.')
+# for x, y in produtos.items():
+#     print(f'{x} - {y[0]} - {y[1]} - {y[2]}')
+#
+# while True:
+#     opcao = input('Opções:\n'
+#                   '1 - Registrar entrada de produto\n'
+#                   '2 - Registrar saída de profuto\n'
+#                   '3 - Sair do sistema\n'
+#                   'Qual opcação (digite o número): ')
+#     if opcao == '3':
+#         break
+#     if opcao == '1':
+#         codigo = input('Qual o código do produto: ')
+#         qtd = int(input('Qual a quantidade: '))
+#         produtos[codigo][1] += qtd
+#     if opcao == '2':
+#         codigo = input('Qual o código do produto: ')
+#         qtd = int(input('Qual a quantidade: '))
+#         if qtd > produtos[codigo][1]:
+#             print('Quantidade insuficiente no estoque.')
+#         else:
+#             produtos[codigo][1] -= qtd
+#
+#
+# print(produtos)
 
-print('Código do produto, produto, quantidade e valor.')
-for x, y in produtos.items():
-    print(f'{x} - {y[0]} - {y[1]} - {y[2]}')
+# Funções
 
-while True:
-    opcao = input('Opções:\n'
-                  '1 - Registrar entrada de produto\n'
-                  '2 - Registrar saída de profuto\n'
-                  '3 - Sair do sistema\n'
-                  'Qual opcação (digite o número): ')
-    if opcao == '3':
-        break
-    if opcao == '1':
-        codigo = input('Qual o código do produto: ')
-        qtd = int(input('Qual a quantidade: '))
-        produtos[codigo][1] += qtd
-    if opcao == '2':
-        codigo = input('Qual o código do produto: ')
-        qtd = int(input('Qual a quantidade: '))
-        if qtd > produtos[codigo][1]:
-            print('Quantidade insuficiente no estoque.')
-        else:
-            produtos[codigo][1] -= qtd
+# def soma(valor1, valor2):
+#     return valor1 + valor2
+#
+# total = soma(36, 47)
+# print(total)
+#
+# total1 = soma(36)
+# print(total)
+
+# def soma(valor1, valor2, imprime=False):
+#     resultado = valor1 + valor2
+#     if imprime:
+#         print(f'Soma: {resultado}')
+#     return resultado
+#
+# total = soma(10,84)
+# print(total)
+# total1 = soma(10, 84, True)
+
+# def soma(valor1, valor2):
+#     return valor1 + valor2
+#
+# def multiplicacao(valor1, valor2):
+#     return valor1 * valor2
+#
+# def calcular(x, valor1, valor2):
+#     return x(valor1, valor2)
+#
+# print(calcular(multiplicacao, 3, 2))
 
 
-print(produtos)
+# lista = [49, 42, True]
+# def soma(valor1, valor2, imprime=False):
+#     resultado = valor1 + valor2
+#     if imprime:
+#         print(f'Soma: {resultado}')
+#     return valor1 + valor2
+#
+# soma(*lista)
+
+def soma(imprime, *valores):
+    total = 0
+    for valor in valores:
+        total += valor
+    if imprime:
+        print(f'Soma: {total}')
+    return total
+
+soma(True, 10, 20, 30, 78)
+print(soma(False, 10, 50))

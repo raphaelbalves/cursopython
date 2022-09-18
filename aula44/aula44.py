@@ -123,17 +123,179 @@
 
 # Exercício nada a ver 8
 
+# while True:
+#     entrada = input('Digite um número ou escreva SAIR para encerrar o programa: ')
+#     if entrada.lower() == 'sair':
+#         print('Encerrando programa.')
+#         break
+#     else:
+#         if int(entrada) % 2 == 0:
+#             print(f'{entrada} é um número par.')
+#         else:
+#             print(f'{entrada} é um número ímpar.')
+
+# Novos exercícios
+
+# Versão 1
+
+# numeros = []
+# mult = 1
+# while True:
+#     numero = int(input('Digite um número [para sair, digite 0]: '))
+#     if numero == 0:
+#         break
+#     numeros.append(numero)
+#
+# for x in numeros:
+#     mult *= x
+#
+# print(f'Soma: {sum(numeros)}')
+# print(f'Multiplicação {mult}')
+# print(f'Maior número: {max(numeros)}')
+# print(f'Menor número: {min(numeros)}')
+
+
+# Versão 2
+
+# numeros = []
+# mult = 1
+# soma = 0
+# maior = 0
+# menor = 0
+# marc = 1
+# while True:
+#     numero = int(input('Digite um número [para sair, digite 0]: '))
+#     if numero == 0:
+#         break
+#     numeros.append(numero)
+#
+# for x in numeros:
+#     mult *= x
+#     soma += x
+#     if marc == 1:
+#         menor = x
+#     if x < menor:
+#         menor = x
+#     if x > maior:
+#         maior = x
+#     marc += 1
+#
+# print(f'Soma: {soma}')
+# print(f'Multiplicação {mult}')
+# print(f'Maior número: {maior}')
+# print(f'Menor número: {menor}')
+
+# Contar palavras
+
+# palavras = []
+#
+# while True:
+#     palavra = input('Digite uma palavra: ')
+#     if palavra == '0':
+#         break
+#     palavras.append(palavra.lower())
+#
+# opcao = input('Qual palavra quer contar: ')
+# contagem = palavras.count(opcao.lower())
+#
+# print(f'Ocorrência da palavra {opcao.upper()}: {contagem}')
+
+# Numeros repetidos
+
+# numeros_informados = []
+# numeros_sem_repeticao = []
+# numeros_repetidos = []
+#
+# while True:
+#     numero = int(input('Digite um número: '))
+#     if numero == 0:
+#         break
+#     numeros_informados.append(numero)
+#     if numero not in numeros_sem_repeticao:
+#         numeros_sem_repeticao.append(numero)
+#     if numeros_informados.count(numero) > 1 and numero not in numeros_repetidos:
+#         numeros_repetidos.append(numero)
+#
+# print(f'Números informados: {numeros_informados}')
+# print(f'Números sem repetição: {numeros_sem_repeticao}')
+# print(f'Números repetidos: {numeros_repetidos}')
+
+# Número par ou ímpar
+
+# numeros = []
+# par = []
+# impar = []
+#
+# while True:
+#     numero = int(input('Digite um número: '))
+#     if numero == 0:
+#         break
+#     if numero % 2 == 0:
+#         par.append(numero)
+#     else:
+#         impar.append(numero)
+#
+# print(f'Pares: {par}')
+# print(f'Ímpares: {impar}')
+
+# Is super set
+
+# linguagens = {'python', 'java', 'c++'}
+# linguagem = {'python'}
+#
+# if linguagens.issuperset(linguagem):
+#     print('linguagens contém linguagem')
+# else:
+#     print('lingaguens não contém linguagem')
+#
+# if linguagem.issubset(linguagens):
+#     print('linguagem está contida em liguagens')
+# else:
+#     print('linguagem não está contida em linguagens')
+
+# palavras =[]
+# while True:
+#     palavra = input('Digite uma palavra: ')
+#     if palavra == '0':
+#         break
+#     palavras.append(palavra)
+#
+# conjunto = set(palavras)
+#
+# for x in conjunto:
+#     if palavras.count(x) == 1:
+#         print(f'"{x}" foi digitada uma única vez.')
+
+produtos = {
+    "1": ['Teclado', 300, 166.71],
+    "2": ['Mouse', 125, 80.57],
+    "3": ['Processador', 25, 875.64],
+    "4": ['Cooler', 70, 35.14]
+}
+
+print('Código do produto, produto, quantidade e valor.')
+for x, y in produtos.items():
+    print(f'{x} - {y[0]} - {y[1]} - {y[2]}')
+
 while True:
-    entrada = input('Digite um número ou escreva SAIR para encerrar o programa: ')
-    if entrada.lower() == 'sair':
-        print('Encerrando programa.')
+    opcao = input('Opções:\n'
+                  '1 - Registrar entrada de produto\n'
+                  '2 - Registrar saída de profuto\n'
+                  '3 - Sair do sistema\n'
+                  'Qual opcação (digite o número): ')
+    if opcao == '3':
         break
-    else:
-        if int(entrada) % 2 == 0:
-            print(f'{entrada} é um número par.')
+    if opcao == '1':
+        codigo = input('Qual o código do produto: ')
+        qtd = int(input('Qual a quantidade: '))
+        produtos[codigo][1] += qtd
+    if opcao == '2':
+        codigo = input('Qual o código do produto: ')
+        qtd = int(input('Qual a quantidade: '))
+        if qtd > produtos[codigo][1]:
+            print('Quantidade insuficiente no estoque.')
         else:
-            print(f'{entrada} é um número ímpar.')
+            produtos[codigo][1] -= qtd
 
 
-
-
+print(produtos)

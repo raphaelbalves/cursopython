@@ -28,6 +28,7 @@ def primeiro_digito(cnpj):
     else:
         return primeiro_digito
 
+
 def segundo_digito(cnpj, primeiro_digito):
     cnpj = list(cnpj) + [primeiro_digito]
     multiplicador = 6
@@ -43,6 +44,7 @@ def segundo_digito(cnpj, primeiro_digito):
         return 0
     else:
         return segundo_digito
+
 
 def validar(cnpj):
     cnpj_com_digitos = numeros_com_digitos(cnpj)

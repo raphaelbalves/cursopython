@@ -12,6 +12,13 @@ def apenas_numeros_sem_digitos(cnpj):
     return cnpj[:12]
 
 
+def analise_sequencia(cnpj):
+    if cnpj[0] * len(cnpj) == cnpj:
+        return False
+    else:
+        return True
+
+
 def primeiro_digito(cnpj):
     cnpj = list(cnpj)
     multiplicador = 5
@@ -47,19 +54,18 @@ def segundo_digito(cnpj, primeiro_digito):
 
 
 def validar(cnpj):
-    cnpj_com_digitos = numeros_com_digitos(cnpj)
-    cnpj_sem_digitos = apenas_numeros_sem_digitos(cnpj)
-    primeiro_digito_numero = primeiro_digito(cnpj_sem_digitos)
-    segundo_digito_numero = segundo_digito(cnpj_sem_digitos, primeiro_digito_numero)
-    cnpj_mais_digitos = cnpj_sem_digitos+str(primeiro_digito_numero)+str(segundo_digito_numero)
-    if cnpj_com_digitos == cnpj_mais_digitos:
-        return True
-    else:
+    try:
+        cnpj_com_digitos = numeros_com_digitos(cnpj)
+        cnpj_sem_digitos = apenas_numeros_sem_digitos(cnpj)
+        sequencia = analise_sequencia(cnpj_com_digitos)
+        primeiro_digito_numero = primeiro_digito(cnpj_sem_digitos)
+        segundo_digito_numero = segundo_digito(cnpj_sem_digitos, primeiro_digito_numero)
+        cnpj_mais_digitos = cnpj_sem_digitos + str(primeiro_digito_numero) + str(segundo_digito_numero)
+        if cnpj_com_digitos == cnpj_mais_digitos and sequencia:
+            return True
+        else:
+            return False
+    except Exception:
         return False
-
-
-
-
-
 
 

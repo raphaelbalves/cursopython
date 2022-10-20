@@ -53,9 +53,9 @@ def validar(cnpj):
     segundo_digito_numero = segundo_digito(cnpj_sem_digitos, primeiro_digito_numero)
     cnpj_mais_digitos = cnpj_sem_digitos+str(primeiro_digito_numero)+str(segundo_digito_numero)
     if cnpj_com_digitos == cnpj_mais_digitos:
-        return f'CNPJ válido: {cnpj}'
+        return True
     else:
-        return f'CNPJ inválido: {cnpj}'
+        return False
 
 
 
